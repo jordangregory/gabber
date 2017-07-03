@@ -1,0 +1,22 @@
+{
+  "name": "gabber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "\\",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\\"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pg": "^6.4.0",
+    "sequelize": "^4.2.1"
+  }
+}
