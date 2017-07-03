@@ -5,7 +5,11 @@ const mustacheExpress = require("mustache-express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const models = require("./models");
-const port = process.env.PORT || 6000;
+const homeRoutes = require("./routes/homeRoutes");
+const authRoutes = require("./routes/authRoutes");
+const likeRoutes = require("./routes/likeRoutes");
+const gabRoutes = require("./routes/gabRoutes");
+const port = process.env.PORT || 8000;
 
 app.engine("mustache", mustacheExpress());
 app.set("views", "./public");
@@ -24,17 +28,11 @@ app.use(
     }
   })
 );
-
-app.get("/homepage", function(req, res) {
-  console.log("session", req.session);
-  res.render("homepage");
-});
-app.get("/signup", function(req, res) {
-  res.render("signup");
-});
-app.get("/login", function(req, res) {
-  res.render("login");
-});
+// Routers
+app.use("/", homeRoutes);
+app.use("/auth", authRoutes);
+app.use("/likes", likeRoutes);
+app.use("/gabs", gabRoutes);
 
 app.listen(port, function() {
   console.log(`Server is running on port ${port}.`);
