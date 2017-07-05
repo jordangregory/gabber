@@ -11,10 +11,21 @@
 </head>
 
 <body>
+	<header>
+		<a href="/homepage">Gabble - Home</a>
+		<a>New Gabble</a>
+		<a>Who Likes You?</a>
+		<a>Login</a>
+		<a>Logout</a>
+	</header>
 	<h1>Sign into Gabber</h1>
-	<form action="/signup" method="post">
+	<form action="/auth/signup" method="post">
+
+		<input type="text" name="name" placeholder="name">
+		<input type="email" name="email" placeholder="email">
 		<input type="text" name="username" placeholder="username">
 		<input type="password" name="password" placeholder="password">
+		<input type="text" name="bio" placeholder="bio">
 		<input type="submit">
 		<form>
 
