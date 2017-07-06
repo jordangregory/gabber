@@ -28,6 +28,12 @@ app.use(
     }
   })
 );
+// console log the session
+app.use(function(req, res, next) {
+  console.log(req.session);
+  next();
+});
+
 // Routers
 app.use("/", homeRoutes);
 app.use("/auth", authRoutes);

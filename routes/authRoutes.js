@@ -8,7 +8,31 @@ authRouter.get("/login", function(req, res) {
 });
 // log in the user
 authRouter.post("/login", function(req, res) {
-  return res.redirect("/login");
+  if (!req.body || !req.body.username || !req.body.password) {
+    return res.redirect("/login");
+  }
+  var userRecord = req.body;
+  models.user
+    .find({
+      where: { username: req.body.username }
+    })
+    .then(function(foundUser) {
+      console.log("foundUser: ", foundUser);
+      if (!foundUser) {
+        return res.redirect("/auth/login"); //user not found
+      }
+      //check if the req.body.password matches the foundUser password.
+      // if they match, add a user property to the req.session.
+      if (req.body.password === foundUser.password) {
+        req.session.user = foundUser;
+        return res.redirect("/");
+      } else {
+        return res.redirect("/auth/login");
+      }
+    })
+    .catch(function(err) {
+      res.status(500).send(err);
+    });
 });
 
 // create a new user
