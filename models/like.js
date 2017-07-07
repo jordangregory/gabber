@@ -1,13 +1,11 @@
-'use strict';
+"use strict";
 module.exports = function(sequelize, DataTypes) {
-  var like = sequelize.define('like', {
-    likerid: DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
-  });
+  var like = sequelize.define(
+    "like",
+    {
+      likerid: DataTypes.INTEGER
+    },
+    {}
+  );
   return like;
 };

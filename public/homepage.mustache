@@ -12,13 +12,27 @@
 
 <body>
 	<header>
-		<a href="/auth/signup">Gabble - Home</a>
-		<a href="/newGab">New Gabble</a>
-		<a>Who Likes You?</a>
-		<a>Login</a>
-		<a>Logout</a>
+		<a href="/auth/login">Login</a>
+		<a href="/auth/signup/">Logout</a>
+		<a>Likes</a>
 	</header>
 	<h1>Gabber - Home</h1>
+	<div>
+		<h1>New Gab</h1>
+		<form action="/gabs/gab" method="post">
+			<input type="textarea" name="body">
+			<input type="submit">
+		</form>
+
+		<div class="gabList">
+			{{#gabs}}
+			<div>
+				Display each gab this block
+				<button>Like this</button>
+			</div>
+			{{/gabs}}
+		</div>
+	</div>
 </body>
 
 </html>

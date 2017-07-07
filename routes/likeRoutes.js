@@ -1,7 +1,8 @@
 const express = require("express");
 const likeRouter = express.Router();
 
-likeRouter.get("/", function(req, res) {
+likeRouter.post("/", function(req, res) {
+  // post req should have the post id and the liker id.
   res.render("likes");
 });
 

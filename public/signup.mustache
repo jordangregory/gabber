@@ -12,20 +12,23 @@
 
 <body>
 	<header>
-		<a href="/homepage">Gabble - Home</a>
-		<a>New Gabble</a>
-		<a>Who Likes You?</a>
-		<a>Login</a>
-		<a>Logout</a>
+		<p>Already signed up?</p>
+		<a href="/auth/login">Login Here</a>
+
 	</header>
-	<h1>Sign into Gabber</h1>
+	<h1>Gabber - Signup</h1>
 	<form action="/auth/signup" method="post">
 
 		<input type="text" name="name" placeholder="name">
+		<br>
 		<input type="email" name="email" placeholder="email">
+		<br>
 		<input type="text" name="username" placeholder="username">
+		<br>
 		<input type="password" name="password" placeholder="password">
-		<input type="text" name="bio" placeholder="bio">
+		<br>
+		<input type="textarea" name="bio" placeholder="bio">
+		<br>
 		<input type="submit">
 		<form>
 

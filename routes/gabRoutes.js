@@ -1,13 +1,29 @@
 const express = require("express");
 const gabRouter = express.Router();
+const models = require("../models");
 
-gabRouter.get("/", function(req, res) {
+gabRouter.get("/gab", function(req, res) {
   // get all the gabs
   res.render("newGab");
 });
 
-gabRouter.post("/", function(req, res) {
-  res.redner("newGab");
+gabRouter.post("/gab", function(req, res) {
+  var newGab = models.post.build({
+    body: req.body.body
+  });
+  newGab
+    .save()
+    .then(function(savedGab) {
+      console.log("savedGab: ", savedGab);
+    })
+    .catch(function(err) {
+      console.warm("Error ", err);
+    });
+  return res.redirect("/");
 });
+
+// gabRouter.get("/gab/id", function(req, res) {
+
+// });
 
 module.exports = gabRouter;
