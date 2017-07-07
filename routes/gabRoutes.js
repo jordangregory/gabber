@@ -23,7 +23,6 @@ gabRouter.post("/gab", function(req, res) {
 });
 
 // gabRouter.get("/gab/id", function(req, res) {
-
 // });
 
 module.exports = gabRouter;

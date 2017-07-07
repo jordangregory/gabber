@@ -5,6 +5,7 @@ const mustacheExpress = require("mustache-express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const models = require("./models");
+const welcomeRoutes = require("./routes/welcomeRoutes");
 const homeRoutes = require("./routes/homeRoutes");
 const authRoutes = require("./routes/authRoutes");
 const likeRoutes = require("./routes/likeRoutes");
@@ -35,6 +36,7 @@ app.use(function(req, res, next) {
 });
 
 // Routers
+app.use("/welcome", welcomeRoutes);
 app.use("/", homeRoutes);
 app.use("/auth", authRoutes);
 app.use("/likes", likeRoutes);
